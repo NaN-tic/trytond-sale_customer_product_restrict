@@ -259,10 +259,10 @@ Sale Restricted product to allowed Customer::
     >>> sale.state
     u'processing'
     >>> sale.reload()
-    >>> sale_line.customer_product_name
+    >>> sale_line.description
     u'[1111] Customer 1 Product'
 
-Sale Restricted product to unallowed Customer::
+Sale Restricted product to disallowed Customer::
 
     >>> config.user = sale_user.id
     >>> Sale = Model.get('sale.sale')
@@ -278,7 +278,7 @@ Sale Restricted product to unallowed Customer::
     >>> sale.save()
     Traceback (most recent call last):
         ...
-    UserError: ('UserError', (u'Product product is restricted', ''))
+    UserError: ('UserError', (u'Product "product" is restricted to some customers only.', ''))
 
  Sale Restricted and not restricted product to allowed Customer::
 
@@ -329,4 +329,3 @@ Sale Restricted product to unallowed Customer::
     >>> sale.state
     u'processing'
     >>> sale.reload()
-

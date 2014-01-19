@@ -36,7 +36,7 @@ class SaleLine:
     def __setup__(cls):
         super(SaleLine, cls).__setup__()
         cls._error_messages.update({
-                'restricted_product': ('Product %s is restricted to some '
+                'restricted_product': ('Product "%s" is restricted to some '
                     'customers only.'),
                 })
 
