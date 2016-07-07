@@ -22,5 +22,5 @@ class Template:
             }, depends=['active', 'salable'])
 
     @staticmethod
-    def default_customer_only():
+    def default_product_customer_only():
         return False
