@@ -24,7 +24,6 @@ class Sale:
             sale.check_restricted_products()
 
     def check_restricted_products(self):
-        Line = Pool().get('sale.line')
         for line in self.lines:
             line.check_restricted_products()
 
@@ -47,7 +46,7 @@ class SaleLine:
             line.check_restricted_products()
 
     def check_restricted_products(self):
-        if not self.product or not self.product.product_customer_only:
+        if not self.product or not self.product.template.product_customer_only:
             return
         ProductCustomer = Pool().get('sale.product_customer')
         products = ProductCustomer.search([
