@@ -1,20 +1,12 @@
 #This file is part of sale_customer_product module for Tryton.  The COPYRIGHT
 #file at the top level of this repository contains the full copyright
 #notices and license terms.
-
-import datetime
-
-from trytond.model import ModelView, ModelSQL, fields
-from trytond.pyson import Eval, If
 from trytond.pool import Pool, PoolMeta
-from trytond.transaction import Transaction
-from trytond import backend
 
 __all__ = ['SaleLine', 'Sale']
-__metaclass__ = PoolMeta
 
 
-class Sale:
+class Sale(metaclass=PoolMeta):
     __name__ = 'sale.sale'
 
     @classmethod
@@ -28,7 +20,7 @@ class Sale:
             line.check_restricted_products()
 
 
-class SaleLine:
+class SaleLine(metaclass=PoolMeta):
     __name__ = 'sale.line'
 
     @classmethod

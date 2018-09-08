@@ -167,7 +167,7 @@ Create an Inventory::
     >>> inventory_line.save()
     >>> Inventory.confirm([inventory.id], config.context)
     >>> inventory.state
-    u'done'
+    'done'
 
 Sale Restricted product to allowed Customer::
 
@@ -187,10 +187,10 @@ Sale Restricted product to allowed Customer::
     >>> Sale.confirm([sale.id], config.context)
     >>> Sale.process([sale.id], config.context)
     >>> sale.state
-    u'processing'
+    'processing'
     >>> sale.reload()
     >>> sale_line.description
-    u'[1111] Customer 1 Product'
+    '[1111] Customer 1 Product'
 
 Sale Restricted product to disallowed Customer::
 
@@ -208,7 +208,7 @@ Sale Restricted product to disallowed Customer::
     >>> sale.save()         # doctest: +IGNORE_EXCEPTION_DETAIL
     Traceback (most recent call last):
         ...
-    UserError: ('UserError', (u'Product "product" is restricted to some customers only.', ''))
+    UserError: ('UserError', ('Product "product" is restricted to some customers only.', ''))
 
 Sale Restricted and not restricted product to allowed Customer::
 
@@ -232,7 +232,7 @@ Sale Restricted and not restricted product to allowed Customer::
     >>> Sale.confirm([sale.id], config.context)
     >>> Sale.process([sale.id], config.context)
     >>> sale.state
-    u'processing'
+    'processing'
     >>> sale.reload()
 
 Sale not restricted product to Unallowed Customer::
@@ -257,5 +257,5 @@ Sale not restricted product to Unallowed Customer::
     >>> Sale.confirm([sale.id], config.context)
     >>> Sale.process([sale.id], config.context)
     >>> sale.state
-    u'processing'
+    'processing'
     >>> sale.reload()
