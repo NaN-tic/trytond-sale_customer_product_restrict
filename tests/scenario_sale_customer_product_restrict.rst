@@ -87,6 +87,15 @@ Create parties::
     >>> customer2 = Party(name='Customer2')
     >>> customer2.save()
 
+Create account category::
+
+    >>> ProductCategory = Model.get('product.category')
+    >>> account_category = ProductCategory(name="Account Category")
+    >>> account_category.accounting = True
+    >>> account_category.account_expense = expense
+    >>> account_category.account_revenue = revenue
+    >>> account_category.save()
+
 Create Restricted product::
 
     >>> ProductUom = Model.get('product.uom')
@@ -101,8 +110,7 @@ Create Restricted product::
     >>> template.salable = True
     >>> template.list_price = Decimal('10')
     >>> template.cost_price_method = 'fixed'
-    >>> template.account_expense = expense
-    >>> template.account_revenue = revenue
+    >>> template.account_category = account_category
     >>> template.product_customer_only = True
     >>> template.save()
     >>> product, = template.products
@@ -120,13 +128,13 @@ Create UnRestricted product::
     >>> template2.cost_price = Decimal('5')
     >>> template2.cost_price_method = 'fixed'
     >>> template2.product_customer_only = False
-    >>> template2.account_expense = expense
-    >>> template2.account_revenue = revenue
+    >>> template2.account_category = account_category
     >>> template2.save()
     >>> product2.template = template2
     >>> product2.save()
 
 Create Customer Product::
+
     >>> CustomerProduct = Model.get('sale.product_customer')
     >>> cp = CustomerProduct()
     >>> cp.party = customer
