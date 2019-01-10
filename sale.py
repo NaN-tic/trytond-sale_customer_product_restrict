@@ -2,6 +2,8 @@
 #file at the top level of this repository contains the full copyright
 #notices and license terms.
 from trytond.pool import Pool, PoolMeta
+from trytond.i18n import gettext
+from trytond.exceptions import UserError
 
 __all__ = ['SaleLine', 'Sale']
 
@@ -23,13 +25,6 @@ class Sale(metaclass=PoolMeta):
 class SaleLine(metaclass=PoolMeta):
     __name__ = 'sale.line'
 
-    @classmethod
-    def __setup__(cls):
-        super(SaleLine, cls).__setup__()
-        cls._error_messages.update({
-                'restricted_product': ('Product "%s" is restricted to some '
-                    'customers only.'),
-                })
 
     @classmethod
     def validate(cls, lines):
@@ -45,5 +40,6 @@ class SaleLine(metaclass=PoolMeta):
                 ('product', '=', self.product.template.id),
                 ('party', '=', self.sale.party)])
         if not products:
-            self.raise_user_error('restricted_product',
-                (self.product.rec_name,))
+            raise UserError(gettext(
+                'sale_customer_product_restrict.restricted_product',
+                product=self.product.rec_name))
