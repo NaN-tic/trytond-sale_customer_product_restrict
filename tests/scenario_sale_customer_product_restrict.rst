@@ -183,9 +183,8 @@ Sale Restricted product to allowed Customer::
     >>> sale_line.product = product
     >>> sale_line.quantity = 2.0
     >>> sale.save()
-    >>> Sale.quote([sale.id], config.context)
-    >>> Sale.confirm([sale.id], config.context)
-    >>> Sale.process([sale.id], config.context)
+    >>> sale.click('quote')
+    >>> sale.click('confirm')
     >>> sale.state
     'processing'
     >>> sale.reload()
@@ -228,9 +227,8 @@ Sale Restricted and not restricted product to allowed Customer::
     >>> sale_line.product = product2
     >>> sale_line.quantity = 2.0
     >>> sale.save()
-    >>> Sale.quote([sale.id], config.context)
-    >>> Sale.confirm([sale.id], config.context)
-    >>> Sale.process([sale.id], config.context)
+    >>> sale.click('quote')
+    >>> sale.click('confirm')
     >>> sale.state
     'processing'
     >>> sale.reload()
@@ -253,9 +251,8 @@ Sale not restricted product to Unallowed Customer::
     >>> sale_line.product = product2
     >>> sale_line.quantity = 2.0
     >>> sale.save()
-    >>> Sale.quote([sale.id], config.context)
-    >>> Sale.confirm([sale.id], config.context)
-    >>> Sale.process([sale.id], config.context)
+    >>> sale.click('quote')
+    >>> sale.click('confirm')
     >>> sale.state
     'processing'
     >>> sale.reload()
