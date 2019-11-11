@@ -106,7 +106,6 @@ Create Restricted product::
     >>> template.name = 'product'
     >>> template.default_uom = unit
     >>> template.type = 'goods'
-    >>> template.purchasable = True
     >>> template.salable = True
     >>> template.list_price = Decimal('10')
     >>> template.cost_price_method = 'fixed'
@@ -122,7 +121,6 @@ Create UnRestricted product::
     >>> template2.name = 'product'
     >>> template2.default_uom = unit
     >>> template2.type = 'goods'
-    >>> template2.purchasable = True
     >>> template2.salable = True
     >>> template2.list_price = Decimal('10')
     >>> template2.cost_price = Decimal('5')
@@ -188,8 +186,6 @@ Sale Restricted product to allowed Customer::
     >>> sale.state
     'processing'
     >>> sale.reload()
-    >>> sale_line.description
-    '[1111] Customer 1 Product'
 
 Sale Restricted product to disallowed Customer::
 
