@@ -7,5 +7,5 @@ msgid "Sale Restricted"
 msgstr "Venda restringida"
 
 msgctxt "model:ir.message,text:restricted_product"
-msgid "Product "%(product)s" is restricted to some customers only"
-msgstr "El producte "%(product)s" es restringit a alguns clients únicament "
+msgid "Product \"%(product)s\" is restricted to some customers only"
+msgstr "El producte \"%(product)s\" es restringit a alguns clients únicament "
