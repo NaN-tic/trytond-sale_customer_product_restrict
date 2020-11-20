@@ -1,11 +1,11 @@
-# 
+#
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
-
-msgctxt "error:sale.line:"
-msgid "Product %s is restricted"
-msgstr "El producto %s tiene la venda restringida"
 
 msgctxt "field:product.template,product_customer_only:"
 msgid "Sale Restricted"
 msgstr "Venda restringida"
+
+msgctxt "model:ir.message,text:restricted_product"
+msgid "Product \"%(product)s\" is restricted to some customers only"
+msgstr "El producto \"%(product)s\" está restringido a algunos clientes únicamente"
