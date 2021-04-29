@@ -37,7 +37,7 @@ class SaleLine(metaclass=PoolMeta):
             return
         ProductCustomer = Pool().get('sale.product_customer')
         products = ProductCustomer.search([
-                ('product', '=', self.product.template.id),
+                ('product', '=', self.product.id),
                 ('party', '=', self.sale.party)])
         if not products:
             raise UserError(gettext(
