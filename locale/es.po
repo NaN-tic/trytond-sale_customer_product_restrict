@@ -4,7 +4,7 @@ msgstr "Content-Type: text/plain; charset=utf-8\n"
 
 msgctxt "field:product.template,product_customer_only:"
 msgid "Sale Restricted"
-msgstr "Venda restringida"
+msgstr "Venta restringida"
 
 msgctxt "model:ir.message,text:restricted_product"
 msgid "Product \"%(product)s\" is restricted to some customers only"
