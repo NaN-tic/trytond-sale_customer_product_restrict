@@ -5,17 +5,15 @@ from trytond.pool import Pool, PoolMeta
 from trytond.i18n import gettext
 from trytond.exceptions import UserError
 
-__all__ = ['SaleLine', 'Sale']
-
 
 class Sale(metaclass=PoolMeta):
     __name__ = 'sale.sale'
 
     @classmethod
-    def validate(cls, sales):
-        super(Sale, cls).validate(sales)
+    def confirm(cls, sales):
         for sale in sales:
             sale.check_restricted_products()
+        super(Sale, cls).confirm(sales)
 
     def check_restricted_products(self):
         for line in self.lines:
@@ -24,13 +22,6 @@ class Sale(metaclass=PoolMeta):
 
 class SaleLine(metaclass=PoolMeta):
     __name__ = 'sale.line'
-
-
-    @classmethod
-    def validate(cls, lines):
-        super(SaleLine, cls).validate(lines)
-        for line in lines:
-            line.check_restricted_products()
 
     def check_restricted_products(self):
         if not self.product or not self.product.template.product_customer_only:
