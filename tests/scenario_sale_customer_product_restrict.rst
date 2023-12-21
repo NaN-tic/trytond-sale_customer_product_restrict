@@ -197,7 +197,9 @@ Sale Restricted product to disallowed Customer::
     >>> sale.lines.append(sale_line)
     >>> sale_line.product = product
     >>> sale_line.quantity = 2.0
-    >>> sale.save()         # doctest: +IGNORE_EXCEPTION_DETAIL
+    >>> sale.save()
+    >>> sale.click('quote')
+    >>> sale.click('confirm')         # doctest: +IGNORE_EXCEPTION_DETAIL
     Traceback (most recent call last):
         ...
     UserError: ('UserError', ('Product "product" is restricted to some customers only.', ''))
