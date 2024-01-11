@@ -15,7 +15,7 @@ class Template(metaclass=PoolMeta):
             'readonly': ~Eval('active', True),
             'invisible': (~Eval('salable', False)
                 | ~Eval('context', {}).get('company')),
-            }, depends=['active', 'salable'])
+            })
 
     @staticmethod
     def default_product_customer_only():
