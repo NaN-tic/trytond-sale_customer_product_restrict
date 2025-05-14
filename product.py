@@ -12,7 +12,6 @@ class Template(metaclass=PoolMeta):
     __name__ = "product.template"
     product_customer_only = fields.Boolean('Sale Restricted',
         states={
-            'readonly': ~Eval('active', True),
             'invisible': (~Eval('salable', False)
                 | ~Eval('context', {}).get('company')),
             })
