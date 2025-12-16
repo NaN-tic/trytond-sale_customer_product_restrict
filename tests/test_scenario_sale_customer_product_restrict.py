@@ -123,7 +123,7 @@ class Test(unittest.TestCase):
         CustomerProduct = Model.get('sale.product_customer')
         cp = CustomerProduct()
         cp.party = customer
-        cp.product = template
+        cp.product = product
         cp.name = 'Customer 1 Product'
         cp.code = '1111'
         cp.save()
