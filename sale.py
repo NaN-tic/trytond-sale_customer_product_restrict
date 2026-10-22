@@ -4,12 +4,14 @@
 from trytond.pool import Pool, PoolMeta
 from trytond.i18n import gettext
 from trytond.exceptions import UserError
+from trytond.model import ModelView
 
 
 class Sale(metaclass=PoolMeta):
     __name__ = 'sale.sale'
 
     @classmethod
+    @ModelView.button
     def confirm(cls, sales):
         for sale in sales:
             sale.check_restricted_products()
